@@ -1,0 +1,15 @@
+{
+  "name": "Nuxt 기본 템플릿 (Not SSR)",
+  "message": "run script : yarn run parepare",
+  "imports": {
+    "#ustra/nuxt": "@ustra/nuxt/src",
+    "#ustra/nuxt/*": "@ustra/nuxt/src/*"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "prepare": "nuxt prepare"
+  }
+}

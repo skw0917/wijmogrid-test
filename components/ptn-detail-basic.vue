@@ -17,7 +17,7 @@
   </UButtonBox>
   <br /><br />
   3번 그리드
-  <WjFlexGrid :itemsSource="webCtgGridCollectionView2" selectionMode="Row" :isReadOnly="false" style="min-height: 100px">
+  <WjFlexGrid :itemsSource="collectionView" selectionMode="Row" :isReadOnly="false" style="min-height: 100px">
     <WjFlexGridColumn binding="webCtgId" header="관리카테고리 명" width="*" />
     <WjFlexGridColumn binding="magnRt" header="마진율(%)" width="*" />
   </WjFlexGrid>
@@ -55,13 +55,22 @@ const getRow2 = () => {
 
 // 3번 그리드
 const webCtgGridCollectionView2 = computed(() => {
-  useCollectionView(modelValue.value.webCtg, { trackChanges: true })
+  return useCollectionView(toRaw(modelValue.value.webCtg), { trackChanges: true })
 })
 
+
+const collectionView = ref(useCollectionView([], { trackChanges: true }))
 const addRow3 = () => {
-  webCtgGridCollectionView2.value.addNew({})
+  collectionView.value.addNew({}, true)
 }
 const getRow3 = () => {
-  console.log(webCtgGridCollectionView2.value.itemsAdded, webCtgGridCollectionView2.value.itemsEdited)
+  console.log(collectionView.value.itemsAdded, collectionView.value.itemsEdited)
 }
+
+watch(() => props.modelValue?.webCtg, (v) => {
+  collectionView.value.sourceCollection = v
+}, {
+  immediate: true
+})
+
 </script>

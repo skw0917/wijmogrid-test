@@ -2,6 +2,12 @@
   <UBox>
     <UItem>
       <PtnDetailBasic v-model="ptnDetail"></PtnDetailBasic>
+      <UButton text="Init" @click="() => initData()" />
+      <div>
+      <pre>
+      {{  JSON.stringify(ptnDetail, null, 2) }}
+      </pre>
+    </div>
     </UItem>
   </UBox>
 </template>
@@ -31,4 +37,10 @@ const initData = async () => {
 }
 
 const tabList = reactive([{ header: '기본정보', pane: '' }])
+watch(() => ptnDetail, (v) => {
+  console.log('ptnDetail is changed...', v)
+}, {
+  deep: true
+})
+
 </script>

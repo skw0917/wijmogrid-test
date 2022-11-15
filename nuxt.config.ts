@@ -10,6 +10,13 @@ export default defineNuxtConfig({
     },
   },
   ustra: {
+    server: {
+      middleware: {
+        proxy: {
+          proxies: {}
+        }
+      }
+    },
     auth: {
       enabled: false,
       type: 'jwt',

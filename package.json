@@ -25,7 +25,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@ustra/nuxt-wijmo": "^3.0.0-beta.12"
+    "@ustra/nuxt-wijmo": "^3.0.0-beta.17"
   },
   "devDependencies": {
     "@esbuild-plugins/node-globals-polyfill": "0.1.1",
